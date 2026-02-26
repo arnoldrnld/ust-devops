@@ -1,0 +1,113 @@
+=====INSTALLED PACKAGES====
+annotated-doc
+annotated-types
+anyio
+click
+colorama
+fastapi
+h11
+idna
+pydantic
+pydantic_core
+starlette
+typing-inspection
+typing_extensions
+uvicorn
+
+=====ENV VARIABLES========
+ACLOCAL_PATH - C:\Program Files\Git\mingw64\share\aclocal;C:\Program Files\Git\usr\share\aclocal
+ALLUSERSPROFILE - C:\ProgramData
+APPDATA - C:\Users\307408\AppData\Roaming
+BUNDLED_DEBUGPY_PATH - c:\Users\307408\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy
+CHROME_CRASHPAD_PIPE_NAME - \\.\pipe\crashpad_33724_EJUCAKRVZGSQJBLO
+COLORTERM - truecolor
+COMMONPROGRAMFILES - C:\Program Files\Common Files
+COMPUTERNAME - 5CD3441DFQ
+COMSPEC - C:\Windows\system32\cmd.exe
+CONFIG_SITE - C:/Program Files/Git/etc/config.site
+COMMONPROGRAMFILES(X86) - C:\Program Files (x86)\Common Files
+COMMONPROGRAMW6432 - C:\Program Files\Common Files
+DISPLAY - needs-to-be-defined
+DLIB_NO_VF_DEFAULTS - 1
+DLIB_SILENCE - 1
+DRIVERDATA - C:\Windows\System32\Drivers\DriverData
+EFC_81156 - 1
+EXEPATH - C:\Program Files\Git\bin
+FPS_BROWSER_APP_PROFILE_STRING - Internet Explorer
+FPS_BROWSER_USER_PROFILE_STRING - Default
+GIT_ASKPASS - c:\Users\307408\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\2d0aa4fb4040936c\askpass.sh
+HOME - C:\Users\307408
+HOMEDRIVE - C:
+HOMEPATH - \Users\307408
+HOSTNAME - 5CD3441DFQ
+INFOPATH - C:\Program Files\Git\mingw64\local\info;C:\Program Files\Git\mingw64\share\info;C:\Program Files\Git\usr\local\info;C:\Program Files\Git\usr\share\info;C:\Program Files\Git\usr\info;C:\Program Files\Git\share\info
+LANG - en_US.UTF-8
+LOCALAPPDATA - C:\Users\307408\AppData\Local
+LOGONSERVER - \\5CD3441DFQ
+MANPATH - C:\Program Files\Git\mingw64\local\man;C:\Program Files\Git\mingw64\share\man;C:\Program Files\Git\usr\local\man;C:\Program Files\Git\usr\share\man;C:\Program Files\Git\usr\man;C:\Program Files\Git\share\man
+MINGW_CHOST - x86_64-w64-mingw32
+MINGW_PACKAGE_PREFIX - mingw-w64-x86_64
+MINGW_PREFIX - C:/Program Files/Git/mingw64
+MSYSTEM - MINGW64
+MSYSTEM_CARCH - x86_64
+MSYSTEM_CHOST - x86_64-w64-mingw32
+MSYSTEM_PREFIX - C:/Program Files/Git/mingw64
+NUMBER_OF_PROCESSORS - 12
+OLDPWD - C:/Users/307408/Desktop/Hackethon
+ORIGINAL_PATH - C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\307408\bin;C:\Python313\Scripts;C:\Python313;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\WindowsPowerShell\Scripts;C:\Program Files\PuTTY;C:\Program Files\Git\cmd;C:\Users\307408\AppData\Local\Microsoft\WindowsApps;C:\Users\307408\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\307408\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts
+ORIGINAL_TEMP - C:/Users/307408/AppData/Local/Temp
+ORIGINAL_TMP - C:/Users/307408/AppData/Local/Temp
+OS - Windows_NT
+ONEDRIVE - C:\Users\307408\OneDrive
+PATH - C:\Users\307408\Desktop\Hackethon\venv\Scripts;C:\Users\307408\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\307408\bin;C:\Python313\Scripts;C:\Python313;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\WindowsPowerShell\Scripts;C:\Program Files\PuTTY;C:\Program Files\Git\cmd;C:\Users\307408\AppData\Local\Microsoft\WindowsApps;C:\Users\307408\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\307408\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+PATHEXT - .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+PKG_CONFIG_PATH - C:\Program Files\Git\mingw64\lib\pkgconfig;C:\Program Files\Git\mingw64\share\pkgconfig
+PKG_CONFIG_SYSTEM_INCLUDE_PATH - C:/Program Files/Git/mingw64/include
+PKG_CONFIG_SYSTEM_LIBRARY_PATH - C:/Program Files/Git/mingw64/lib
+PLINK_PROTOCOL - ssh
+PROCESSOR_ARCHITECTURE - AMD64
+PROCESSOR_IDENTIFIER - Intel64 Family 6 Model 154 Stepping 4, GenuineIntel
+PROCESSOR_LEVEL - 6
+PROCESSOR_REVISION - 9a04
+PROGRAMFILES - C:\Program Files
+PS1 - \[]633;A\](venv) \[]633;A\]\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ \[]633;B\]\[]633;B\]
+PSMODULEPATH - C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft Purview Information Protection\Powershell
+PUBLIC - C:\Users\Public
+PWD - C:/Users/307408/Desktop/Hackethon/q7
+PYDEVD_DISABLE_FILE_VALIDATION - 1
+PYTHONSTARTUP - c:\Users\307408\AppData\Roaming\Code\User\workspaceStorage\97c23a192c1dc5ab7632319ce28859ad\ms-python.python\pythonrc.py
+PYTHON_BASIC_REPL - 1
+PROGRAMDATA - C:\ProgramData
+PROGRAMFILES(X86) - C:\Program Files (x86)
+PROGRAMW6432 - C:\Program Files
+SESSIONNAME - Console
+SHELL - C:\Program Files\Git\usr\bin\bash.exe
+SHLVL - 1
+SNOW_AGENT - C:\Program Files\Snow Software\Inventory\Agent\
+SSH_ASKPASS - C:/Program Files/Git/mingw64/bin/git-askpass.exe
+SYSTEMDRIVE - C:
+SYSTEMROOT - C:\Windows
+TEMP - C:\Users\307408\AppData\Local\Temp
+TERM - xterm-256color
+TERM_PROGRAM - vscode
+TERM_PROGRAM_VERSION - 1.109.4
+TMP - C:\Users\307408\AppData\Local\Temp
+TMPDIR - C:\Users\307408\AppData\Local\Temp
+USERDNSDOMAIN - ustr.com
+USERDOMAIN - USTR
+USERDOMAIN_ROAMINGPROFILE - USTR
+USERNAME - 307408
+USERPROFILE - C:\Users\307408
+VIRTUAL_ENV - C:/Users/307408/Desktop/Hackethon/venv
+VIRTUAL_ENV_PROMPT - venv
+VSCODE_DEBUGPY_ADAPTER_ENDPOINTS - c:\Users\307408\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\.noConfigDebugAdapterEndpoints\endpoint-ecbe232f148cbeaf.txt
+VSCODE_GIT_ASKPASS_EXTRA_ARGS - 
+VSCODE_GIT_ASKPASS_MAIN - c:\Users\307408\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\2d0aa4fb4040936c\askpass-main.js
+VSCODE_GIT_ASKPASS_NODE - C:\Users\307408\AppData\Local\Programs\Microsoft VS Code\Code.exe
+VSCODE_GIT_IPC_HANDLE - \\.\pipe\vscode-git-c29366f814-sock
+VSCODE_PYTHON_AUTOACTIVATE_GUARD - 1
+WINDIR - C:\Windows
+_ - C:/Windows/py
+
+=====ACTIVE USERS=========
+307408
