@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 6px;
+            margin: 5px 0;
+        }
+
+        ul {
+            margin-top: 15px;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>User Management</h2>
+
+<h3>Add User</h3>
+<input type="text" id="username" placeholder="Enter name" />
+<button onclick="addUser()">Add User</button>
+
+<h3>User List</h3>
+<button onclick="loadUsers()">Load Users</button>
+
+<ul id="userList"></ul>
+
+<script>
+
+const BASE_URL = "http://13.233.114.87:8080";
+
+function loadUsers() {
+    fetch(BASE_URL + "/api/users")
+        .then(response => response.json())
+        .then(data => {
+            let list = document.getElementById("userList");
+            list.innerHTML = "";
+
+            data.forEach(user => {
+                let li = document.createElement("li");
+                li.textContent = user.name;
+                list.appendChild(li);
+            });
+        })
+        .catch(error => console.error("Error:", error));
+}
+
+function addUser() {
+    const name = document.getElementById("username").value;
+
+    if (!name) {
+        alert("Please enter a name");
+        return;
+    }
+
+    fetch(BASE_URL + "/api/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name: name })
+    })
+    .then(response => response.json())
+    .then(() => {
+        document.getElementById("username").value = "";
+        loadUsers();
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+</script>
+
+</body>
+</html>
