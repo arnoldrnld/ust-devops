@@ -1,0 +1,55 @@
+# --------------------------- BACKEND - NODE -------------------------- #
+- npm run start - for production (use node, no auto refresh)
+- npm run dev - for development (use nodmon, enables auto reload)
+
+# -------------------------- FRONTEND - NODE -------------------------- #
+- npm run build - for building production files
+
+React → UI library (frontend framework)
+Vite → development server + build tool
+Node.js → runtime used to build the project
+
+We serve it using nginx from /usr/share/nginx/html
+
+- After build step the project generate build file like this
+dist/
+ ├── index.html
+ ├── assets/
+ │   ├── main.js
+ │   └── style.css
+
+BUILD PHASE
+Stage 1
+Node environment
+↓
+Install dependencies
+↓
+Build React app
+↓
+Generate dist folder
+
+RUNTIME PHASE
+Stage 2
+Web server container
+↓
+Copy dist files
+↓
+Serve static website using nginx
+
+get the dist file moves to the /usr/share/nginx/html !!!
+
+get the nginx.conf to /etc/nginx/
+
+# ===================================================================== #
+build image with a custom docker file
+- docker build -t <image_name> -f <dockerfile_name> .
+
+find a file inside a directory (. - currdir)
+- find . -iname "<filename>"
+
+find a word inside a directory
+(use case - search for localhost in config files)
+- grep -r <word> <directory_name>
+
+
+change localhost in ./frontend/src/lib/api.ts:const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
