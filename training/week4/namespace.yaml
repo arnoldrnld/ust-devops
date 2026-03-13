@@ -1,0 +1,9 @@
+# namespace is a core object , thus v1
+apiVersion: v1
+
+# kind of resource object
+kind: Namespace
+
+metadata:
+  # name of namespace
+  name: dev
