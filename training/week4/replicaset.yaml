@@ -1,24 +1,24 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: myreplicaset
+  name: myrs
 
 spec:
   replicas: 3
 
   selector:
     matchLabels:
-      app: nginx-pod
+      app: mypod
 
   template:
     metadata:
-      name: nginx-pod
       labels:
-        app: nginx-pod
+        app: mypod
 
     spec:
       containers:
-        - name: nginx-con
-          image: nginx:1.20
-          ports:
-            - containerPort: 80
+      - name: mycontainer
+        image: rnld101/nginx-static:green
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
