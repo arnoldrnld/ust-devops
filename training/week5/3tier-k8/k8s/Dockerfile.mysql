@@ -1,0 +1,8 @@
+FROM mysql:8.0
+
+# Copy initialization script 
+# In mysql official image, it runs all sql files in this dir:
+# /docker-entrypoint-initdb.d/
+COPY init.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 3306
