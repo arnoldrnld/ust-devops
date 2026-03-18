@@ -1,0 +1,7 @@
+FROM redis:alpine
+
+EXPOSE 6379
+
+# This command starts the redis server and also writes to a file
+# But for now we mention this command in k8
+# CMD ["redis-server","--appendonly","yes"]
