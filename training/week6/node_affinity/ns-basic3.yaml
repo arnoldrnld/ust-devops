@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns-basic3
+  namespace: scheduling-demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  nodeSelector:
+    gpu: "true"
+    disk: ssd

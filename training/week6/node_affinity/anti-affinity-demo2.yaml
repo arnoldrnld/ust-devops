@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: anti-affinity-demo2
+  namespace: scheduling-demo
+  labels:
+    app: nginx-aa
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app: nginx-aa
+        topologyKey: kubernetes.io/hostname

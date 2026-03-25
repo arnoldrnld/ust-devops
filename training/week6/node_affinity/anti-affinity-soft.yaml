@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: anti-affinity-soft
+  namespace: scheduling-demo
+  labels:
+    app: nginx-soft
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: nginx-soft
+          topologyKey: kubernetes.io/hostname

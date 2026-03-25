@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns-basic2
+  namespace: scheduling-demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  nodeSelector:
+    env: staging
