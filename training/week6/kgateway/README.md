@@ -1,4 +1,4 @@
-# Banking Services Infrastructure Setup
+# Kubernetes Gateway Setup with Helm & kgateway (Envoy)
 
 This repository contains the configuration required to deploy a Kubernetes Gateway using **K-Gateway**. This setup replaces traditional Ingress with the more expressive **Kubernetes Gateway API**, providing advanced routing for the banking application suite.
 
