@@ -1,0 +1,102 @@
+1. Create 2 Users(user1 and user2) and add them to config file
+   1. create 2 keys for both users using openssl
+      openssl genrsa -out user1.key 2048
+      openssl genrsa -out user2.key 2048
+   2. generate a certificate signing request(CSR) for user1 with group dev and user2 with group QA
+      openssl req -new -key user1.key -out user1.csr -subj "/CN=user1/O=dev"
+      openssl req -new -key user2.key -out user2.csr -subj "/CN=user2/O=QA"
+   3. To verify:
+      ls | grep user
+   4. Sign CSR using Certificate Authority(CA)
+      openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in user1.csr -out user1.crt
+      openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in user2.csr -out user2.crt
+   5. set credentials in config file
+      kubectl config set-credentials user1 --client-certificate=user1.crt --client-key=user1.key
+      kubectl config set-credentials user1 --client-certificate=user2.crt --client-key=user2.key
+   6. cat .kube/config and verify the users
+
+2. create a namespace rbac
+   kubectl create ns rbac
+
+3. set 2 contexts for 2 users in config files
+   kubectl config set-context user1-context --cluster=kubernetes --user=user1 --namespace=rbac
+   kubectl config set-context user2-context --cluster=kubernetes --user=user2 --namespace=rbac
+   Note:
+   kubectl config get-clusters
+   kubectl config get-users
+   
+   verification:
+   kubectl config get-contexts (Note: * represents current context)
+ 
+4. change the context and try to access the pod
+   kubectl config use-context user1-context
+   kubectl get pods
+   output: Permission Denied
+   
+5. switch back to default context
+   kubectl config use-context kubernetes-admin@kubernetes
+   kubectl apply -f dev_role.yaml
+   kubectl apply -f dev_rolebinding.yaml
+   kubectl apply -f QA_role.yaml
+   kubectl apply -f QA_rolebinding.yaml
+   verification:
+     kubectl get roles -n rbac
+     kubectl get rolebindings -n rbac
+   Note: To get all the verbs:
+     kubectl api-resources -o wide | grep pod
+		  
+6. create a pod in user-1 context
+   kubectl config use-context user1-context
+   kubectl run mypod --image=nginx
+
+7. access the same pod in user-2 context
+   kubectl config use-context user2-context
+   kubectl get pods 
+
+8. create a pod in different namespace using default context under different namespace
+   kubectl config use-context kubernetes-admin@kubernetes
+   kubectl create ns demo
+   kubectl run mypod2 --image=nginx -n demo
+   
+9. try to access this pod using user2-context
+   kubectl config use-context user2-context
+   kubectl get pods -n demo
+   output: permission denied
+   Note: kubectl auth can-i list pods --as=user2 -n demo 
+   
+10. change to default context and apply cluster yaml file for user-2 
+    kubectl config use-context kubernetes-admin@kubernetes
+    kubectl apply -f QA_cluster_role.yaml
+    kubectl apply -f QA_cluster_binding.yaml
+
+11. access the previously created pod in user2-context
+    kubectl config use-context user2-context
+    kubectl get pods -n demo
+	
+12. Service Account
+    change the context to default context and create a pod
+     kubectl config use-context kubernetes-admin@kubernetes
+     kubectl apply -f sapod.yaml
+     kubectl exec -it sapod -n rbac -- sh
+     kubectl get pods 
+     Output: Permission Denied
+	 
+13. create a custom service account
+    kubectl create sa mysa
+    kubectl get sa
+
+14. Add serviceAccountName in sapod.yaml under spec and create it again
+    kubectl delete pod sapod -n rbac
+    add serviceAccountName: mysa under spec in sapod.yaml
+    kubectl apply -f sapod.yaml 
+	
+15. Go to QA_rolebinding and add these lines under subjects
+    - kind: ServiceAccount
+      name: mysa
+    
+    save and apply it.
+
+16. Access the pods inside a pod using user_context_2
+    kubectl exec -it sapod -- sh
+    kubectl get pods
+	  

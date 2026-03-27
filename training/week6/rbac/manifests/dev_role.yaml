@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dev_role
+  namespace: rbac
+rules:
+- apiGroups: [""] #"" indicates the core api group
+  verbs: ["create","get","watch","list","update","patch","delete"]
+  resources: ["pods","services","configmaps"]
+  # resourceNames: ["mydep","nginx"]
+- apiGroups: [""]
+  verbs: ["get","list","watch"]
+  resources: ["secrets","pods/log"]
