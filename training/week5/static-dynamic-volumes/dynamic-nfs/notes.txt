@@ -1,0 +1,59 @@
+STEP 1: SETUP NFS
+=================
+- Create an instance.
+>>> sudo apt-get install nfs-common nfs-kernel-server -y
+- Create a dir where everything gets stored
+>>> sudo mkdir -p /nfs-storage
+- Give permission
+>>> sudo chmod 777 /nfs-storage
+- Give permission to k8 nodes to use the dir
+>>> sudo vi /etc/exports
+- Add permissions (Add the below line in the file)
+```
+/nfs-storage   *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+```
+# rw: Full read-write access for Pods.
+# sync: Forces data to disk immediately (safest).
+# no_subtree_check: Boosts performance by skipping parent directory checks.
+# no_root_squash: Crucial—allows the container's root user to manage files on the host.
+# no_all_squash: Preserves specific User IDs (UIDs) from your Pods.
+# insecure: Allows connections from non-privileged ports (often needed for K8s).
+- Apply the export
+>>> sudo exportfs -av
+- Check service
+>>> sudo systemctl restart nfs-server
+>>> sudo systemctl status nfs-server
+- Check the nfs mounts
+>>> sudo showmount -e localhost
+
+STEP 2: SETUP WORKER NODES
+==========================
+>>> sudo apt update
+>>> sudo apt install nfs-common
+
+- Verify the nfs mount manully (Optional)
+>>> sudo mkdir -p /nfs/data
+>>> sudo mount -t nfs 10.0.0.11:/nfs/kubedata /nfs/data
+
+STEP 3: ADD THE PROVISIONER REPO (USING HELM)
+============================================
+>>> helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+
+STEP 4: INSTALL THE PROVISIONER
+===============================
+>>> helm install dev-nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+--set nfs.server=<IP_ADDR OF NFS VM> \
+--set nfs.path=<PATH OF NFS DIR> \
+--set storageClass.create=false \
+--namespace nfs-storage \
+--create-namespace
+
+- Optional: To unistall use
+>>> helm uninstall dev-nfs-provisioner
+
+- Check if pod is created
+>>> kubectl get pods -A
+
+STEP 5: WRITE MANIFESTS
+=======================
+- Write storagclass, pvc, and deployment yaml files
