@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# git diff --cached will show all modifications in staging area
+# It checks for word secret
+if git diff --cached | grep -i "secret"; then
+  echo "Secret detected. Commit blocked."
+  exit 1
+fi
+echo "Commit passed security checks."
+exit 0
+
