@@ -1,5 +1,7 @@
 # HabitFlow: AWS 3-Tier Infrastructure and Deployment Guide
 
+![Architecture Diagram](architecture-diagram.png)
+
 This document is infrastructure-first and follows this rollout order:
 1. Build AWS networking and shared services in detail.
 2. Launch dummy EC2 instances and deploy manually.
