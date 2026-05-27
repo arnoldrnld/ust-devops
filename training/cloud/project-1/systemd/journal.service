@@ -1,0 +1,20 @@
+[Unit]
+Description=HabitFlow Journal Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/habitflow/journal-service
+
+EnvironmentFile=/home/ubuntu/habitflow/journal-service/.env
+
+ExecStart=/home/ubuntu/habitflow/journal-service/.venv/bin/uvicorn \
+app:app \
+--host 0.0.0.0 \
+--port 8003
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

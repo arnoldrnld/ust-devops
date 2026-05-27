@@ -1,0 +1,14 @@
+[Unit]
+Description=HabitFlow Frontend Build Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/habitflow/frontend
+ExecStart=/usr/bin/npm install
+ExecStart=/usr/bin/npm run build
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
